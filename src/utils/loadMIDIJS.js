@@ -18,7 +18,7 @@ APP.instrumentsName = [
 ];
 
 MIDI.loadPlugin({
-  soundfontUrl: "./public/fatboy/",
+  soundfontUrl: "../public/fatboy/",
   instruments: APP.instrumentsName,
   onsuccess: function() {
     for (let i = 0; i < APP.instrumentsName.length; i++) {
