@@ -29,8 +29,9 @@
   left: 37px;
   width: 6px;
   height: 18px;
-  border-radius: 20%;
-  background: #fff;
+  background: #fff5;
+
+  border-radius: 50%;
 }
 .lds-spinner div:nth-child(1) {
   transform: rotate(0deg);
