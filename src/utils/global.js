@@ -1,5 +1,3 @@
-document.body.focus();
-
 const APP = {
   instrumentsName: [],
   currentInstrumentID: 0,

@@ -24,6 +24,11 @@ li:active {
   opacity: 0.6;
 }
 
+.instrument_selected {
+  opacity: 0.6;
+  color: black;
+}
+
 #piano {
   background: #ef5350;
 }

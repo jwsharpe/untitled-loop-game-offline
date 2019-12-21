@@ -56,50 +56,77 @@
       type="text/javascript"
     ></script>
     <!-- MIDI JS END-->
+    <script src="./src/utils/global.js"></script>
 
-    <script src="./src/utils/global.js" defer></script>
+    <script src="./src/classes/Loops.js"></script>
+    <script src="./src/classes/Notes.js"></script>
+    <script src="./src/classes/Recordings.js"></script>
+
+    <script src="./src/utils/loadFromLocal"></script>
     <script src="./src/utils/loadMIDIJS.js" defer></script>
-    <script src="./src/classes/Loops.js" defer></script>
-    <script src="./src/classes/Notes.js" defer></script>
-    <script src="./src/classes/Recordings.js" defer></script>
-    <script src="./src/components/keyboard.js" defer></script>
 
+    <script src="./src/components/keyboard.js" defer></script>
+    <script src="./src/components/instruments.js" defer></script>
+
+    <link rel="stylesheet" href="./public/css/loading.css" />
     <link rel="stylesheet" href="./public/css/index.css" />
     <link rel="stylesheet" href="./public/css/main.css" />
-    <link rel="stylesheet" href="./public/css/instruments.css" />
+    <link rel="stylesheet" href="./public/css/main/instruments.css" />
+    <link rel="stylesheet" href="./public/css/main/controls.css" />
+    <link rel="stylesheet" href="./public/css/main/sidebar.css" />
+    <link rel="stylesheet" href="./public/css/main/looper.css" />
+
     <title>Untitled Loop Game</title>
   </head>
   <body>
-    <div class="main">
-      <div id="instruments">
-        <ul>
-          <li data-channel="0" id="piano">Piano</li>
-          <li data-channel="1" id="acoustic-guitar">A. Guitar</li>
-          <li data-channel="2" id="acoustic-bass">A. Bass</li>
-          <li data-channel="3" id="electric-bass">E. Bass</li>
-
-          <li data-channel="4" id="electric-piano">E Piano</li>
-          <li data-channel="5" id="violin">Violin</li>
-          <li data-channel="6" id="tuba">Tuba</li>
-          <li data-channel="7" id="clarinet">Clarinet</li>
-
-          <li data-channel="8" id="perc-organ">Perc. Organ</li>
-          <li data-channel="9" id="harp">Harp</li>
-          <li data-channel="10" id="ocarina">Ocarina</li>
-          <li data-channel="11" id="music-box">Music Box</li>
-
-          <li data-channel="12" id="square">Square Lead</li>
-          <li data-channel="13" id="saw">Saw Lead</li>
-          <li data-channel="14" id="synth-bass">Synth Bass</li>
-          <li data-channel="15" id="drums">Drums</li>
-        </ul>
+    <div class="loading">
+      <div class="lds-spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
+    </div>
+    <div class="main">
+      <div class="left">
+        <div id="instruments">
+          <ul>
+            <li data-channel="0" id="piano">Piano</li>
+            <li data-channel="1" id="acoustic-guitar">A. Guitar</li>
+            <li data-channel="2" id="acoustic-bass">A. Bass</li>
+            <li data-channel="3" id="electric-bass">E. Bass</li>
 
-      <div id="sidebar"></div>
+            <li data-channel="4" id="electric-piano">E Piano</li>
+            <li data-channel="5" id="violin">Violin</li>
+            <li data-channel="6" id="tuba">Tuba</li>
+            <li data-channel="7" id="clarinet">Clarinet</li>
 
-      <div id="looper"></div>
+            <li data-channel="8" id="perc-organ">Perc. Organ</li>
+            <li data-channel="9" id="harp">Harp</li>
+            <li data-channel="10" id="ocarina">Ocarina</li>
+            <li data-channel="11" id="music-box">Music Box</li>
 
-      <div id="controls"></div>
+            <li data-channel="12" id="square">Square Lead</li>
+            <li data-channel="13" id="saw">Saw Lead</li>
+            <li data-channel="14" id="synth-bass">Synth Bass</li>
+            <li data-channel="15" id="drums">Drums</li>
+          </ul>
+        </div>
+        <div id="looper">looper</div>
+      </div>
+      <div class="right">
+        <div id="sidebar">sidebar</div>
+
+        <div id="controls">controls</div>
+      </div>
     </div>
   </body>
 </html>

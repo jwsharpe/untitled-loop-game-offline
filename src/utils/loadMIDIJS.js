@@ -24,6 +24,8 @@ MIDI.loadPlugin({
     for (let i = 0; i < APP.instrumentsName.length; i++) {
       MIDI.programChange(i, MIDI.GM.byName[APP.instrumentsName[i]].number);
     }
+    const loading = document.querySelector(".loading");
+    loading.remove();
     console.log("loaded");
   }
 });
