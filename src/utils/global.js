@@ -1,10 +1,12 @@
 const APP = {
   instrumentsName: [],
   currentInstrumentID: 0,
-  currentLoop: [],
+  currentLoop: {},
   isRecording: false,
-  currentVolume: 63,
-  currentVelocity: 63,
+  isMetronome: false,
+  currentVolume: 256,
+  currentVelocity: 31,
+  currentOctave: 0,
   keyboardFlags: {},
   notesByKey: {
     z: 36,

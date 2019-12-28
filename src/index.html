@@ -67,6 +67,7 @@
 
     <script src="./components/keyboard.js" defer></script>
     <script src="./components/instruments.js" defer></script>
+    <script src="./components/controls.js" defer></script>
 
     <link rel="stylesheet" href="../public/css/loading.css" />
     <link rel="stylesheet" href="../public/css/index.css" />
@@ -125,7 +126,81 @@
       <div class="right">
         <div id="sidebar">sidebar</div>
 
-        <div id="controls">controls</div>
+        <div id="controls">
+          <div id="octave-controls">
+            <span>Octave <span id="octave">0</span></span>
+
+            <div id="octave-buttons">
+              <button id="octave-down" class="tooltip" class="octave-btn">
+                -
+                <span class="tooltiptextabove">Octave Down 'Ctrl'</span>
+              </button>
+
+              <button id="octave-up" class="tooltip" class="octave-btn">
+                +
+                <span class="tooltiptextabove">Octave Up 'Shift'</span>
+              </button>
+            </div>
+          </div>
+          <div id="analog-controls">
+            <div id="volume-div" class="tooltip">
+              <span
+                >Rec Level
+                <span id="volume">50</span>
+              </span>
+              <div id="volslide" class="slidecontainer">
+                <input
+                  type="range"
+                  min="0"
+                  max="512"
+                  value="256"
+                  class="slider"
+                  id="volume-slider"
+                />
+              </div>
+            </div>
+            <div id="velocity-div" class="tooltip">
+              <span
+                >Velocity
+                <span id="velocity">25</span>
+              </span>
+              <div id="velslide" class="slidecontainer">
+                <input
+                  type="range"
+                  min="0"
+                  max="64"
+                  value="31"
+                  class="slider"
+                  id="velocity-slider"
+                />
+              </div>
+            </div>
+          </div>
+          <div id="digital-buttons">
+            <div>
+              <button id="record-btn">Record</button>
+              <button id="undo-btn">Undo</button>
+            </div>
+            <button id="metro">Metronome</button>
+          </div>
+          <form id="update-form">
+            <div id="update-entry-div">
+              <div class="form-entry">
+                <label for="name">NAME</label>
+                <input type="text" name="name" />
+              </div>
+              <div class="form-entry">
+                <label for="BPM">BPM</label>
+                <input type="number" name="BPM" />
+              </div>
+              <div class="form-entry">
+                <label for="bars">BARS</label>
+                <input type="number" name="bars" />
+              </div>
+            </div>
+            <button>+</button>
+          </form>
+        </div>
       </div>
     </div>
   </body>
