@@ -6,7 +6,8 @@ const CONTROLS = {
   volumeSlider: document.querySelector("#volume-slider"),
   velocityKnob: document.querySelector("#velocity"),
   velocitySlider: document.querySelector("#velocity-slider"),
-  metro: document.querySelector("#metro")
+  metro: document.querySelector("#metro"),
+  octave: document.querySelector("#octave")
 };
 
 CONTROLS.volumeSlider.value = APP.currentVolume;
@@ -132,7 +133,7 @@ const octaveUp = () => {
     for (const note in APP.notesByKey) {
       APP.notesByKey[note] += 12;
     }
-    octave.innerText = APP.currentOctave;
+    CONTROLS.octave.innerText = APP.currentOctave;
   }
 };
 
@@ -142,13 +143,12 @@ const octaveDown = () => {
     for (const note in APP.notesByKey) {
       APP.notesByKey[note] -= 12;
     }
-    octave.innerText = APP.currentOctave;
+    CONTROLS.octave.innerText = APP.currentOctave;
   }
 };
 
 document.body.addEventListener("keydown", e => {
   //   if (!typingElements.includes(document.activeElement)) {
-  const octave = document.querySelector("#octave");
   ///Change Octave//
   if (e.key === "Shift") {
     octaveUp();
