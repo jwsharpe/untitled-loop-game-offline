@@ -11,18 +11,19 @@ function inputNoteOn(note, input) {
 function inputNoteOff(noteKey, input, velocity = APP.currentVelocity) {
   if (APP.keyboardFlags[input]) {
     MIDI.noteOff(APP.keyboardFlags[input].cID, noteKey, 0);
-    // delay = (Date.now() - APP.keyboardFlags[input].time) / 1000.0;
-    // if (isRecording) {
-    // const note = new Note({
-    //   cID: timeEvent[input].cID,
-    //   noteKey: noteKey,
-    //   velocity: velocity,
-    //   volume: volume,
-    //   delay: delay,
-    //   recordingID: currentRecording.id
-    // });
-    //   saveNote(note, timeEvent[input].index, beatIndex);
-    // }
+    delay = (Date.now() - APP.keyboardFlags[input].time) / 1000.0;
+    if (APP.isRecording) {
+      const note = new Note({
+        cID: APP.keyboardFlags[input].cID,
+        noteKey: noteKey,
+        velocity: APP.currentVelocity,
+        volume: APP.currentVolume,
+        delay: delay,
+        // recordingID: APP.currentRecording.id,
+        beatIndex: APP.beatIndex
+      });
+      note.save();
+    }
     APP.keyboardFlags[input] = null;
   }
 }
@@ -33,9 +34,7 @@ document.body.addEventListener("keydown", e => {
       cID: APP.currentInstrumentID,
       noteKey: APP.notesByKey[e.key],
       velocity: APP.currentVelocity,
-      volume: APP.currentVolume,
-      delay: null,
-      recordingID: null
+      volume: APP.currentVolume
     });
     inputNoteOn(note, e.key);
   }

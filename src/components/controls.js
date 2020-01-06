@@ -46,7 +46,7 @@ const updateForm = () => {
 
 CONTROLS.controls.addEventListener("click", e => {
   if (e.target.id === "record-btn") {
-    if (isRecording) {
+    if (APP.isRecording) {
       e.target.style = "";
       endRecording();
     } else {
