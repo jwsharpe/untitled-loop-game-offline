@@ -1,13 +1,11 @@
 function inputNoteOn(note, input) {
   const { cID, volume, noteKey, velocity } = note;
-  if (!APP.keyboardFlags[input]) {
-    APP.keyboardFlags[input] = {
-      time: Date.now(),
-      cID: cID
-    };
-    MIDI.setVolume(cID, volume);
-    MIDI.noteOn(cID, noteKey, velocity, 0);
-  }
+  APP.keyboardFlags[input] = {
+    time: Date.now(),
+    cID: cID
+  };
+  MIDI.setVolume(cID, volume);
+  MIDI.noteOn(cID, noteKey, velocity, 0);
 }
 
 function inputNoteOff(noteKey, input, velocity = APP.currentVelocity) {
@@ -30,7 +28,7 @@ function inputNoteOff(noteKey, input, velocity = APP.currentVelocity) {
 }
 
 document.body.addEventListener("keydown", e => {
-  if (APP.notesByKey[e.key]) {
+  if (!APP.keyboardFlags[e.key]) {
     const note = new Note({
       cID: APP.currentInstrumentID,
       noteKey: APP.notesByKey[e.key],
@@ -44,7 +42,5 @@ document.body.addEventListener("keydown", e => {
 });
 
 document.body.addEventListener("keyup", e => {
-  if (APP.notesByKey[e.key]) {
-    inputNoteOff(APP.notesByKey[e.key], e.key);
-  }
+  inputNoteOff(APP.notesByKey[e.key], e.key);
 });
